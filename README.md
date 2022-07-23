@@ -16,6 +16,9 @@ The app contains a basic player functionality such as:
 - Previous / Next
 - Volume change
 - Mute / Unmute
+- Audio timeline
+- Jump to position by clicking the timeline
+- Saving to local cache current song, it's position and volume
 
 ![Player Screenshot]()
 
@@ -25,7 +28,7 @@ It requires an authentication for certain actions such as upload, or delete audi
 
 ![Auth Screenshot]()
 
-### Uploading audio
+### Upload audio
 
 There are two ways to upload an audio:
 
@@ -38,7 +41,7 @@ There are two ways to upload an audio:
 
 ![Upload Screenshot]()
 
-### Editing and deleting audio
+### Edit and delete audio
 
 You're provided editing and deleting functionality.
 
@@ -46,8 +49,14 @@ You're provided editing and deleting functionality.
 
 ![Editing Screenshot]()
 
-### Filtering and sorting audio list
+### Filter and sort audio list
 
 You can use search to find specific audio or change audio displaying order by clicking the column titles.
 
 ![Searching Screenshot]()
+
+### Share any audio from the list
+
+You can copy the share link of any audio in the list simply by clicking the share button.
+
+![Share Screenshot]()
