@@ -1,0 +1,67 @@
+.modal {
+  &__wrapper {
+    animation: fadeIn 0.5s linear 1;
+
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(8px);
+  }
+
+  &__container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    width: fit-content;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--accent-color1);
+    border: 3px solid var(--accent-color2);
+    border-radius: 20px;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+  }
+
+  &__text {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__confirm {
+    background-color: var(--error-color);
+  }
+
+  &__cancel {
+    background-color: var(--message-color);
+  }
+
+  &_fade-out {
+    animation: fadeIn 0.5s alternate-reverse 1 forwards;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

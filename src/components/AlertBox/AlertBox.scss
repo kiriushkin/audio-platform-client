@@ -1,0 +1,73 @@
+.alert-box {
+  &__container {
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    z-index: 5;
+    width: 400px;
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 0.5s;
+  }
+
+  &__item {
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 15px;
+    animation: showUp 0.5s ease-out 1;
+
+    &-title {
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    &-text {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    &-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+
+    &_message {
+      background-color: var(--message-color);
+    }
+    &_warning {
+      background-color: var(--warning-color);
+    }
+    &_error {
+      background-color: var(--error-color);
+    }
+
+    &_close {
+      animation: close 0.5s ease-out 1 forwards;
+    }
+  }
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+    transform: translateY(120px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

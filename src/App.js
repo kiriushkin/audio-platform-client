@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Loader from './components/Loader/Loader.js';
+import AlertBox from './components/AlertBox/AlertBox.js';
 import Home from './components/Home/Home.js';
 import actionCreators from './store/action-creators/index.js';
 import { useLocalStorage } from './hooks';
@@ -24,6 +26,8 @@ function App() {
   return (
     <div className={'app ' + theme}>
       <div className="app__container">
+        <Loader />
+        <AlertBox />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
