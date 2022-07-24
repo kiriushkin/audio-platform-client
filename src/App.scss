@@ -1,0 +1,83 @@
+.light {
+  --main-color: #ffffff;
+  --accent-color1: #f1f2f6;
+  --accent-color2: #dfe4ea;
+  --accent-color3: #ced6e0;
+  --secondary-color: #2ed573;
+  --other-color: #2f3542;
+  --error-color: #ff6b81;
+  --warning-color: #eccc68;
+  --message-color: #70a1ff;
+
+  .theme-switch {
+    transform: rotate(0deg);
+  }
+}
+
+.dark {
+  --main-color: #2f3640;
+  --accent-color1: #353b48;
+  --accent-color2: #718093;
+  --accent-color3: #7f8fa6;
+  --secondary-color: #2ed573;
+  --other-color: #f5f6fa;
+  --error-color: #c23616;
+  --warning-color: #e1b12c;
+  --message-color: #40739e;
+
+  .theme-switch {
+    transform: rotate(-360deg);
+  }
+}
+
+.app {
+  background-color: var(--main-color);
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.theme-switch {
+  position: absolute;
+  top: 15px;
+  right: -2.25em;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  color: var(--other-color);
+  transition: 0.4s ease-out;
+  cursor: pointer;
+}
+
+.button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: fit-content;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+@media (max-width: 900px) {
+  .app__container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .theme-switch {
+    top: 15px;
+    right: 15px;
+  }
+}

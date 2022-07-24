@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { useEffect } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Home from './components/Home/Home.js';
+import actionCreators from './store/action-creators/index.js';
+import { useLocalStorage } from './hooks';
+
+const SUN_ICON_CLASS = 'fa-solid fa-sun';
+const MOON_ICON_CLASS = 'fa-solid fa-moon';
 
 function App() {
+  const { theme } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { changeTheme } = bindActionCreators(actionCreators, dispatch);
+
+  const cacheTheme = useLocalStorage(theme, 'theme', '');
+
+  useEffect(() => {
+    changeTheme(cacheTheme || 'dark');
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={'app ' + theme}>
+      <div className="app__container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <button
+          className="theme-switch"
+          onClick={() => {
+            changeTheme();
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <i
+            className={theme === 'dark' ? SUN_ICON_CLASS : MOON_ICON_CLASS}
+          ></i>
+        </button>
+      </div>
     </div>
   );
 }
