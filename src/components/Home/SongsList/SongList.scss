@@ -1,0 +1,178 @@
+.songs {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__upload-btn {
+    background-color: var(--message-color);
+  }
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+
+  &__empty {
+    margin-top: 20px;
+    margin-left: 60px;
+    font-weight: 300;
+  }
+}
+
+.song-list-item {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  animation: fadeIn 0.5s ease-out 1 forwards;
+
+  &_current {
+    background-color: var(--accent-color1);
+
+    .song-list-item__title {
+      color: var(--secondary-color);
+    }
+  }
+
+  &:not(:last-child):after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent-color1);
+  }
+
+  &:hover {
+    background-color: var(--accent-color1);
+  }
+
+  button {
+    i {
+      font-size: 1.35rem;
+    }
+
+    &:hover i {
+      color: var(--secondary-color);
+    }
+  }
+
+  &__title {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+    &_input {
+      color: var(--other-color) !important;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid var(--accent-color2);
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+    }
+  }
+
+  &__duration {
+    font-weight: 300;
+  }
+
+  &__release-date {
+    font-weight: 300;
+  }
+
+  &__like-button {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '♥';
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      font-size: 1.75rem;
+      color: var(--secondary-color);
+      opacity: 0;
+    }
+
+    &.animate:before {
+      animation: like1 0.5s linear 1;
+    }
+
+    &.animate:after {
+      animation: like2 0.5s linear 1;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .songs {
+    &__upload-btn {
+      display: none;
+    }
+  }
+
+  .song-list__item {
+    button {
+      &.song-list-item__admin-button {
+        display: none;
+      }
+      i {
+        font-size: 1.15rem;
+      }
+    }
+  }
+
+  .song-list-item {
+    gap: 10px;
+
+    &__release-date {
+      display: none;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes like1 {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(-30deg) translate(-8px, -20px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-60deg) translate(-10px, -25px);
+  }
+}
+
+@keyframes like2 {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(30deg) translate(10px, -20px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(60deg) translate(15px, -25px);
+  }
+}
