@@ -16,8 +16,8 @@
       position: relative;
       z-index: 5;
       height: 100%;
-      filter: drop-shadow(1.5px 1.5px 0px var(--other-color))
-        drop-shadow(1.5px 1.5px 0px var(--message-color));
+      // filter: drop-shadow(1.5px 1.5px 0px var(--other-color))
+      //   drop-shadow(1.5px 1.5px 0px var(--message-color));
     }
 
     // &::after {

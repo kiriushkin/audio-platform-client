@@ -1,7 +1,7 @@
 import './Header.scss';
 import { useNavigate, useLocation } from 'react-router';
 import { useToken, useAlert } from '../../hooks';
-// import logo from '../../assets/logo-color.png';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         <div className="header__logo" onClick={logoClickHandler}>
-          <img src="" alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         {token.value ? (
           <div className="header__login">

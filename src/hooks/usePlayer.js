@@ -4,18 +4,7 @@ import { bindActionCreators } from 'redux';
 import { useSearchParams } from 'react-router-dom';
 import { useApi, useLocalStorage, useLoader } from './index.js';
 import actionCreators from '../store/action-creators/index.js';
-
-// navigator.mediaSession.metadata = new MediaMetadata({
-//   title: audio[index].title,
-//   artist: 'Audio Platform',
-//   artwork: [
-//     {
-//       src: logo,
-//       sizes: '1024x1024',
-//       type: 'image/webp',
-//     },
-//   ],
-// });
+import artwork from '../assets/artwork.png';
 
 const usePlayer = () => {
   const player = useSelector((state) => state.player);
@@ -67,6 +56,19 @@ const usePlayer = () => {
       currentTimeFormatted: '0:00',
       isPlaying: autoplay,
     };
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: newSong.title,
+      artist: 'Audio Platform',
+      artwork: [
+        {
+          src: artwork,
+          sizes: '720x520',
+          type: 'image/png',
+        },
+      ],
+    });
+
     setSong(newSong);
   };
 
