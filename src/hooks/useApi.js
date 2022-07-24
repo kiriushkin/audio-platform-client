@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-const API_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://37.140.199.40:5010/api/'
-    : process.env.API_URL;
+const API_URL = 'http://37.140.199.40:5010/api/';
 
 const useApi = () => {
   const auth = async (data) => {
