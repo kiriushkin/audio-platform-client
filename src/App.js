@@ -4,8 +4,11 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Loader from './components/Loader/Loader.js';
+import Header from './components/Header/Header.js';
 import AlertBox from './components/AlertBox/AlertBox.js';
 import Home from './components/Home/Home.js';
+import Login from './components/Login/Login.js';
+import Upload from './components/Upload/Upload.js';
 import actionCreators from './store/action-creators/index.js';
 import { useLocalStorage } from './hooks';
 
@@ -27,8 +30,11 @@ function App() {
     <div className={'app ' + theme}>
       <div className="app__container">
         <Loader />
+        <Header />
         <AlertBox />
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

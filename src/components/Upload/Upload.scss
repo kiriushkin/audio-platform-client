@@ -1,0 +1,86 @@
+.upload {
+  &__container {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 20px 0;
+    font-size: 2rem;
+  }
+
+  &__form {
+    padding-top: 50px;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.upload-form {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    input[type='text'] {
+      flex-grow: 1;
+      padding: 5px;
+      font-size: 1rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid var(--accent-color2);
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+    }
+
+    div {
+      background-color: var(--message-color);
+      cursor: pointer;
+    }
+
+    button {
+      margin: 0 auto;
+      background-color: var(--secondary-color);
+      * {
+        color: var(--accent-color1);
+      }
+    }
+  }
+
+  &__dropzone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__drop {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--accent-color1);
+    border: 2px dashed var(--accent-color3);
+    border-radius: 20px;
+
+    &-text {
+      font-size: 1.25rem;
+    }
+
+    &-text_hint {
+      font-style: italic;
+      color: var(--accent-color2);
+    }
+  }
+}
