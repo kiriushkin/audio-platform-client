@@ -19,10 +19,6 @@ const SongsList = () => {
     updateSongs();
   }, []);
 
-  useEffect(() => {
-    console.log(player.actualSongs);
-  }, [player.actualSongs]);
-
   return (
     <div className="songs">
       <nav className="songs__nav">
