@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.kiriushkin.pro:5010/api/';
+const API_URL = 'https://api.kiriushkin.pro/audio-platform/api/';
 
 const useApi = () => {
   const auth = async (data) => {
